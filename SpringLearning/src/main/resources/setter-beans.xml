@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="setterStudent" class="com.lucky.sgr.setter.SetterStudent">
+        <property name="id" value="2"/>
+        <property name="name" value="李四"/>
+        <property name="setterGrade" ref="setterGrade"/>
+    </bean>
+
+    <bean id="setterGrade" class="com.lucky.sgr.setter.SetterGrade">
+        <property name="gradeId" value="2"/>
+        <property name="gradeName" value="四年级"/>
+    </bean>
+</beans>
