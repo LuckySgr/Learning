@@ -3,13 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="student" class="com.lucky.sgr.Student">
+    <bean id="student" class="com.lucky.sgr.constructor.Student">
         <constructor-arg name="id" value="1"/>
         <constructor-arg name="name" value="张三"/>
         <constructor-arg name="grade" ref="grade"/>
     </bean>
 
-    <bean id="grade" class="com.lucky.sgr.Grade">
+    <bean id="grade" class="com.lucky.sgr.constructor.Grade">
         <constructor-arg name="gradeId" value="1"/>
         <constructor-arg name="gradeName" value="三年级"/>
     </bean>

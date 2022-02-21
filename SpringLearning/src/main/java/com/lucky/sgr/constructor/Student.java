@@ -1,4 +1,4 @@
-package com.lucky.sgr;
+package com.lucky.sgr.constructor;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

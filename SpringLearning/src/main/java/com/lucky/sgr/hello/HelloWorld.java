@@ -1,4 +1,4 @@
-package com.lucky.sgr;
+package com.lucky.sgr.hello;
 
 /**
  * @author：LuckySgr.
