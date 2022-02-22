@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="course1" class="com.lucky.sgr.collection.Course">
+        <constructor-arg name="courseId" value="1"/>
+        <constructor-arg name="courseName" value="Java"/>
+    </bean>
+    <bean id="course2" class="com.lucky.sgr.collection.Course">
+        <constructor-arg name="courseId" value="2"/>
+        <constructor-arg name="courseName" value="PHP"/>
+    </bean>
+    <bean id="course3" class="com.lucky.sgr.collection.Course">
+        <constructor-arg name="courseId" value="3"/>
+        <constructor-arg name="courseName" value="C"/>
+    </bean>
+
+    <bean id="courseCollection" class="com.lucky.sgr.collection.Collection">
+        <!--数组类型-->
+        <constructor-arg name="courses">
+            <array>
+                <ref bean="course1"/>
+                <ref bean="course2"/>
+                <ref bean="course3"/>
+            </array>
+        </constructor-arg>
+        <!--List 类型-->
+        <constructor-arg name="list">
+            <list>
+                <value>张三</value>
+                <value>李四</value>
+                <value>王五</value>
+                <value>赵六</value>
+            </list>
+        </constructor-arg>
+        <!--Map 类型-->
+        <constructor-arg name="maps">
+            <map>
+                <entry key="JAVA" value="java"/>
+                <entry key="PHP" value="php"/>
+            </map>
+        </constructor-arg>
+        <!--Set 类型-->
+        <constructor-arg name="sets">
+            <set>
+                <value>MySQL</value>
+                <value>Redis</value>
+            </set>
+        </constructor-arg>
+    </bean>
+</beans>
