@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="other" class="com.lucky.sgr.otherType.ExampleBean">
+        <!--使用null 标签注入 Null 值-->
+        <property name="propertyNull">
+            <null/>
+        </property>
+        <!--使用空参数注入空字符串-->
+        <property name="propertyEmpty" value=""/>
+        <!--通过转义注入包含特殊符号的字面量-->
+        <property name="propertyLiteral" value="&lt;Spring Bean的学习&gt;"/>
+        <!--使用 <![CDATA[]]> 将包含特殊符号的字面量注入-->
+        <property name="propertyLiterals">
+            <value><![CDATA[<Spring Bean的学习>]]></value>
+        </property>
+    </bean>
+</beans>
