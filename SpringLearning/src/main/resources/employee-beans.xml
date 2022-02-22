@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="employee" class="com.lucky.sgr.employee.Employee">
+        <constructor-arg name="empNo" value="002"/>
+        <constructor-arg name="empName" value="小黄"/>
+        <constructor-arg name="dept">
+            <bean class="com.lucky.sgr.employee.Dept">
+                <constructor-arg name="deptNo" value="002"/>
+                <constructor-arg name="deptName" value="运维部"/>
+            </bean>
+        </constructor-arg>
+    </bean>
+</beans>
