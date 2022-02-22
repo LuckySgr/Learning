@@ -4,17 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="other" class="com.lucky.sgr.otherType.ExampleBean">
-        <!--使用null 标签注入 Null 值-->
-        <property name="propertyNull">
-            <null/>
-        </property>
-        <!--使用空参数注入空字符串-->
-        <property name="propertyEmpty" value=""/>
-        <!--通过转义注入包含特殊符号的字面量-->
-        <property name="propertyLiteral" value="&lt;Spring Bean的学习&gt;"/>
-        <!--使用 <![CDATA[]]> 将包含特殊符号的字面量注入-->
-        <property name="propertyLiterals">
-            <value><![CDATA[<Spring Bean的学习>]]></value>
-        </property>
+        <!--注入依赖的 Bean-->
+        <property name="dependBean" ref="dependBean"/>
+        <!--级联属性赋值-->
+        <property name="dependBean.dependProperty" value="级联属性赋值"/>
+    </bean>
+    <!--对 ExampleBean 依赖的 Bean 进行定义-->
+    <bean id="dependBean" class="com.lucky.sgr.otherType.DependBean">
+        <!--对属性进行赋值-->
+        <property name="dependProperty" value="依赖 Bean 内部赋值"/>
     </bean>
 </beans>
