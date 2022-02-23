@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="animal" class="com.lucky.sgr.extend.Animal">
+        <property name="name" value="动物"/>
+        <property name="age" value="10"/>
+    </bean>
+
+    <bean id="dog" class="com.lucky.sgr.extend.Dog" parent="animal">
+        <property name="name" value="小狗"/>
+        <property name="call" value="汪汪汪……"/>
+    </bean>
+</beans>
