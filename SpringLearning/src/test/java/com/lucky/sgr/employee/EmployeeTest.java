@@ -19,7 +19,7 @@ public class EmployeeTest {
         //获取 ApplicationContext 容器
         ApplicationContext context = new ClassPathXmlApplicationContext("employee-beans.xml");
         //获取名为 employee 的 Bean
-        Employee employee = context.getBean("employee", Employee.class);
+        Employee employee = context.getBean("employee1", Employee.class);
         //通过日志打印员工信息
         LOGGER.info(employee.toString());
     }

@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="employee" class="com.lucky.sgr.employee.Employee">
+    <bean id="employee1" class="com.lucky.sgr.employee.Employee">
         <constructor-arg name="empNo" value="002"/>
         <constructor-arg name="empName" value="小黄"/>
         <constructor-arg name="dept">
