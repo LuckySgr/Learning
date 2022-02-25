@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--******Advisor : 代表一般切面，Advice 本身就是一个切面，对目标类所有方法进行拦截(* 不带有切点的切面.针对所有方法进行拦截)*******-->
+    <!-- 定义目标（target）对象 -->
+    <bean id="userDao" class="com.lucky.sgr.aop.dao.impl.UserDaoImpl"/>
+
+    <!-- 定义增强 -->
+    <bean id="beforeAdvice" class="com.lucky.sgr.aop.advice.UserDaoBeforeAdvice"/>
+
+    <!--通过配置生成代理 UserDao 的代理对象 -->
+    <bean id="userDaoProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- 设置目标对象 -->
+        <property name="target" ref="userDao"/>
+        <!-- 设置实现的接口 ,value 中写接口的全路径 -->
+        <property name="proxyInterfaces" value="com.lucky.sgr.aop.dao.UserDao"/>
+        <!-- 需要使用value:增强 Bean 的名称 -->
+        <property name="interceptorNames" value="beforeAdvice"/>
+    </bean>
+
+</beans>
