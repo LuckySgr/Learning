@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- 定义目标（target）对象 -->
+    <bean id="userAll1Dao" class="com.lucky.sgr.aop.dao.impl.UserDaoImpl"/>
+    <bean id="orderAll1Dao" class="com.lucky.sgr.aop.dao.OrderDao"/>
+
+    <!-- 定义增强 -->
+    <bean id="beforeAdvice11" class="com.lucky.sgr.aop.advice.UserDaoBeforeAdvice"/>
+    <bean id="aroundAdvice11" class="com.lucky.sgr.aop.advice.OrderDaoAroundAdvice"/>
+
+    <!--定义切面-->
+    <bean id="myPointCutAdvisor1" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <!--定义表达式，规定哪些方法进行拦截 .* 表示所有方法-->
+        <!--<property name="pattern" value=".*"></property>-->
+        <property name="patterns" value="com.lucky.sgr.aop.dao.OrderDao.add.*,com.lucky.sgr.aop.dao.OrderDao.delete.*"/>
+        <property name="advice" ref="aroundAdvice11"/>
+    </bean>
+
+    <!--Spring 自动代理：根据切面 myPointCutAdvisor1 中信息创建代理对象-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+
+</beans>
