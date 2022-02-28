@@ -32,4 +32,22 @@ public class OrderServiceImplTest {
         orderService.createOrder(order);
     }
 
+    @Test
+    public void AnnoOrderService() {
+        ApplicationContext context = new ClassPathXmlApplicationContext("an-tx-beans.xml");
+        OrderService orderService = context.getBean("annotationOrderService", OrderService.class);
+        Order order = new Order();
+        //设置商品 id
+        order.setProductId("1");
+        //商品数量为 30
+        order.setCount(30);
+        //商品金额为 600
+        order.setMoney(new BigDecimal(600));
+        //设置用户 id
+        order.setUserId("1");
+        //订单状态为未完成
+        order.setStatus(0);
+        orderService.createOrder(order);
+    }
+
 }
